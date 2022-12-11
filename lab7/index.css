@@ -1,0 +1,26 @@
+.square {
+	width: 100px;
+	height: 100px;
+	background: red;
+}
+
+.triangle {
+	width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid blue;
+}
+
+.circle {
+	width: 100px;
+	height: 100px;
+	background: green;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+#out {
+    position: absolute;
+}
