@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Frontend task #9</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <script src="script.js" defer></script>
+    </head>
+        <div class = "rowContainer">
+            <div class = "row">
+                <input class = "textInput" type = "string" name = "text">
+                <input class = "valueInput" type = "number" name = "value">
+                <button onclick = "up(this)">↑</button>
+                <button onclick = "down(this)">↓</button>
+                <button onclick = "deleteRow(this)">x</button>
+            </div>
+        </div>
+        <button onclick = "addNewRow()">Добавить элемент</button></br>
+        <button onclick = "saveInformation()">Сохранить</button>
+        <div id = "jsText"></div>
+    </body>
+</html>

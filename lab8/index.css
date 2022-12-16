@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+}
+
+.rowContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: inline-flex;
+}
+
+#jsText {
+    font-family: monospace;
+}
