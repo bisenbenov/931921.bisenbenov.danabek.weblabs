@@ -2,8 +2,34 @@
 //let table = document.querySelector("table");
 
 function addNewRow() {
-    newTable = document.querySelector(".row").cloneNode(true);
-    newRow.appendChild(newTable);
+    let rowContainer = document.querySelector(".rowContainer");
+    let newRow = document.createElement("row");
+
+    let textInput = document.createElement("input");
+    let valueInput = document.createElement("input");
+    textInput.classList.add("textInput");
+    valueInput.classList.add("valueInput");
+    valueInput.setAttribute("type", "number");
+    
+    let upButton = document.createElement("button");
+    let downButton = document.createElement("button");
+    let deleteButton = document.createElement("button");
+
+    upButton.addEventListener("click", up);
+    downButton.addEventListener("click", down);
+    deleteButton.addEventListener("click", deleteRow);
+
+    upButton.innerHTML = "↑";
+    downButton.innerHTML = "↓";
+    deleteButton.innerHTML = "x";
+    
+    newRow.appendChild(textInput);
+    newRow.appendChild(valueInput);
+    newRow.appendChild(upButton);
+    newRow.appendChild(downButton);
+    newRow.appendChild(deleteButton);
+
+    rowContainer.appendChild(newRow);
 }
 
 function saveInformation() {
@@ -22,20 +48,20 @@ function saveInformation() {
     jsText.innerHTML = allDate;
 }
 
-function deleteRow(row) {
-    row.parentElement.remove();
+function deleteRow(event) {
+    event.target.parentElement.remove();
 }
 
-function up(row) {
-    previousRow = row.parentElement.previousElementSibling;
+function up(event) {
+    previousRow = event.target.parentElement.previousElementSibling;
     if (previousRow) {
-        row.parentElement.after(previousRow);
+        event.target.parentElement.after(previousRow);
     }
 }
 
-function down(row) {
-    nextRow = row.parentElement.nextElementSibling;
+function down(event) {
+    nextRow = event.target.parentElement.nextElementSibling;
     if (nextRow) {
-        row.parentElement.before(nextRow);
+        event.target.parentElement.before(nextRow);
     }
 }
