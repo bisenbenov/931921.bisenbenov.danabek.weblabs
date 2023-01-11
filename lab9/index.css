@@ -39,3 +39,23 @@ input {
     width: 273px;
     height: 40px;
 }
+
+
+#monitor {
+    overflow: hidden;
+    padding: 5px;
+    border: 1px solid black;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 3px;
+    font-size: 32px;
+    grid-row: 1;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    min-width: 273px;
+    max-width: 273px;
+    width: auto;
+    min-height: 45px;
+    max-height: 45px;
+}

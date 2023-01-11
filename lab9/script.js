@@ -1,30 +1,76 @@
-const valueText = document.querySelector('#valueText');
+const valueText = document.querySelector('#monitor');
 let button = document.querySelectorAll('.button');
 
+let firstNumber;
+let secondNumber;
+let operation;
+
 function addNumber(newNumber) {
-    let numberLength = valueText.value.toString().length;
-    if (valueText.value==0 && newNumber!="." && numberLength < 2) {
-        valueText.value = newNumber;
+    let numberLength = valueText.textContent.length;
+    
+    if (valueText.textContent==0 && newNumber!="." && numberLength < 2) {
+        valueText.textContent = newNumber;
     }
+
     else {
-        valueText.value += newNumber;
+        valueText.textContent += newNumber;
     }
 }
 
-function addOperation(operation) {
-    valueText.value += " " + operation + " ";
+function addDot() {
+    if (valueText.textContent == "") {
+        valueText.textContent = '0.';
+    }
+
+    if (!(valueText.textContent.includes('.'))) {
+        valueText.textContent += '.';
+    }
+}
+
+function addOperation(_operation) {
+    let value = Array.from(valueText.textContent).join("");
+
+    firstNumber = value;
+    valueText.textContent = '';
+    
+    operation = _operation;
 }
 
 function clearAll() {
-    valueText.value = '0';
+    valueText.textContent = '0';
+    secondNumber = null;
+    operation = null;
 }
 
 function backSpace() {
-    let string = valueText.value.toString();
-    valueText.value = string.slice(0, -1);
+    let string = valueText.textContent;
+        valueText.textContent = string.slice(0, -1);
 }
 
 function calculate() {
-    let result = eval(valueText.value);
-    valueText.value = result;
+    if(!(operation == null)) {
+        secondNumber = Array.from(valueText.textContent).join("");
+
+        switch (operation) {
+            case "+":
+                res = Number(firstNumber) + Number(secondNumber);
+                break;
+            case "*":
+                res = Number(firstNumber) * Number(secondNumber);
+                break;
+            case "/":
+                res = Number(firstNumber) / Number(secondNumber);
+                break;
+            case "-":
+                res = Number(firstNumber) - Number(secondNumber);
+                break;
+            default:
+                break;
+        }
+
+        valueText.innerHTML = res;
+
+        secondNumber = null;
+        operation = null;
+    }
 }
